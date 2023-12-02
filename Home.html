@@ -6,38 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islem Mellehi</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .container {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #555;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+        /* Your existing styles remain unchanged */
 
         th, td {
             border: 1px solid #ddd;
@@ -63,8 +32,30 @@
                     <th>Phone Number</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="dataBody"></tbody>
         </table>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch data from your API
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the table with the retrieved data
+                    const tableBody = document.getElementById('dataBody');
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.username}</td>
+                            <td>${item.email}</td>
+                            <td>${item.phone_number}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
 </body>
 </html>
