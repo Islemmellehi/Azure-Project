@@ -69,24 +69,24 @@
 
     <script>
         // Fetch data from the server
-        fetch('/getData')
-            .then(response => response.json())
-            .then(data => {
-                // Update the HTML table with the retrieved data
-                const dataTable = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+        fetch('/api/getData')
+  .then(response => response.json())
+  .then(data => {
+    const dataTable = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
 
-                data.forEach(item => {
-                    const row = dataTable.insertRow();
-                    const cell1 = row.insertCell(0);
-                    const cell2 = row.insertCell(1);
-                    const cell3 = row.insertCell(2);
+    data.forEach(item => {
+      const row = dataTable.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
 
-                    cell1.textContent = item.username;
-                    cell2.textContent = item.email;
-                    cell3.textContent = item.phone_number;
-                });
-            })
-            .catch(error => console.error('Error:', error));
+      cell1.textContent = item.username;
+      cell2.textContent = item.email;
+      cell3.textContent = item.phone_number;
+    });
+  })
+  .catch(error => console.error('Error:', error));
+
     </script>
 </body>
 </html>
