@@ -66,28 +66,5 @@
             <tbody></tbody>
         </table>
     </div>
-
-    <script>
-        fetch('https://mycloudproject.azurewebsites.net/getData')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data); 
-    const dataTable = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-
-    data.forEach(item => {
-      const row = dataTable.insertRow();
-      const cell1 = row.insertCell(0);
-      const cell2 = row.insertCell(1);
-      const cell3 = row.insertCell(2);
-
-      cell1.textContent = item.username;
-      cell2.textContent = item.email;
-      cell3.textContent = item.phone_number;
-    });
-  })
-  .catch(error => console.error('Error:', error));
-
-
-    </script>
 </body>
 </html>
