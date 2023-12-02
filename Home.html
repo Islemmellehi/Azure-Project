@@ -68,10 +68,10 @@
     </div>
 
     <script>
-        // Fetch data from the server
-        fetch('/api/getData')
+        fetch('https://mycloudproject.azurewebsites.net/getData')
   .then(response => response.json())
   .then(data => {
+    console.log(data); 
     const dataTable = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
 
     data.forEach(item => {
@@ -86,6 +86,7 @@
     });
   })
   .catch(error => console.error('Error:', error));
+
 
     </script>
 </body>

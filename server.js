@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // Define a route to retrieve data
-app.get('/api/getData', async (req, res) => {
+app.get('/getData', async (req, res) => {
   try {
     // Connect to the database
     await sql.connect(config);
